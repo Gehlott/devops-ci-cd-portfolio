@@ -6,16 +6,13 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout Code') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Maven Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                dir('app') {
+                    sh 'pwd'
+                    sh 'ls -l'
+                    sh 'mvn clean package -DskipTests'
+                }
             }
         }
     }
