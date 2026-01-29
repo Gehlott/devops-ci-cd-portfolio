@@ -6,6 +6,7 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout Code') {
             steps {
                 checkout scm
@@ -21,10 +22,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build successful'
+            echo '✅ Maven build successful'
         }
         failure {
-            echo 'Build failed'
+            echo '❌ Maven build failed'
         }
     }
 }
